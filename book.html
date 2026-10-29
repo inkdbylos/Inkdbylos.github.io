@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Your Session · INKD Studio</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='32' y='46' font-family='Impact,sans-serif' font-size='40' fill='%23fff' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="index.html"><b>INKD</b><span>STUDIO</span></a>
+      <a class="label" data-link="sms" href="#" style="text-decoration:none">Questions? Text me</a>
+    </div>
+  </header>
+
+  <main class="book-main">
+    <div class="book-wrap">
+      <ol class="steps" hidden>
+        <li><i>01</i><span>Project</span></li>
+        <li><i>02</i><span>Dates</span></li>
+        <li><i>03</i><span>Policies</span></li>
+        <li><i>04</i><span>Deposit</span></li>
+      </ol>
+
+      <!-- Loading -->
+      <div class="view" id="view-loading"><div class="loader">Loading your booking…</div></div>
+
+      <!-- Error -->
+      <div class="view" id="view-error" hidden>
+        <span class="label">Booking</span>
+        <h1 class="display">Let’s get you sorted</h1>
+        <p class="lead" id="error-msg"></p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a class="btn" data-link="sms" href="#">Text 918-212-8144</a>
+          <a class="btn btn--ghost hide" id="error-start" data-link="inquiry" href="#">Request a tattoo</a>
+        </div>
+      </div>
+
+      <!-- Step 1: Project -->
+      <div class="view" id="view-project" hidden>
+        <span class="label">Your project</span>
+        <h1 class="display" id="project-hello"></h1>
+        <p class="lead">Here’s what we agreed on. Next, you’ll choose the date<span data-plural>s</span> that work for you.</p>
+        <div class="card"><dl class="kv" id="project-details"></dl></div>
+        <button class="btn btn--block" id="to-dates">Choose my date<span data-plural>s</span> <span class="arrow">→</span></button>
+      </div>
+
+      <!-- Step 2: Dates -->
+      <div class="view" id="view-dates" hidden>
+        <span class="label">Choose your time</span>
+        <h1 class="display">Pick your date<span data-plural>s</span></h1>
+        <p class="lead" id="dates-lead"></p>
+        <div id="no-slots" class="card hide">
+          <p style="margin:0">There are no open times that fit this session right now. Text <a data-link="sms" href="#">918-212-8144</a> and I’ll find a date with you.</p>
+        </div>
+        <div id="picker">
+          <div class="cal">
+            <div class="cal-head">
+              <button class="cal-nav" id="cal-prev" aria-label="Previous month">←</button>
+              <b id="cal-title"></b>
+              <button class="cal-nav" id="cal-next" aria-label="Next month">→</button>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+          <div class="times" id="times"></div>
+          <div class="tray">
+            <span class="label" id="tray-title"></span>
+            <ul class="tray-list" id="tray-list"></ul>
+            <button class="btn btn--block" id="to-review" disabled>Review &amp; continue <span class="arrow">→</span></button>
+          </div>
+        </div>
+        <p class="note">All times are Central Time (Tulsa).</p>
+      </div>
+
+      <!-- Step 3: Review + policies -->
+      <div class="view" id="view-review" hidden>
+        <span class="label">Review</span>
+        <h1 class="display">Almost there</h1>
+        <p class="lead">Check your session<span data-plural>s</span> and review the booking policies.</p>
+        <div class="card">
+          <ul class="tray-list" id="review-list" style="margin:0"></ul>
+          <div class="total"><span class="label">Deposit due</span><b id="review-total"></b></div>
+          <p class="note" id="review-note"></p>
+        </div>
+        <div class="card">
+          <span class="label">Booking policies</span>
+          <ol class="numbered" style="margin-top:14px">
+            <li><span><b>Deposit:</b> $100 per session, required to book. Non-refundable and applied toward the final cost of your tattoo.</span></li>
+            <li><span><b>Reschedule / cancel:</b> at least 48 hours’ notice. Less notice may result in the loss of your deposit.</span></li>
+            <li><span><b>No-shows:</b> result in the loss of your deposit. A new appointment requires a new deposit.</span></li>
+            <li><span><b>Late arrivals:</b> 15+ minutes late without communication — your appointment may be cancelled.</span></li>
+            <li><span><b>Hold:</b> your time is held for 2 hours. If the deposit isn’t received, the time is released.</span></li>
+          </ol>
+          <p class="note"><a href="index.html#policies" target="_blank" rel="noopener">Read the full policies</a></p>
+        </div>
+        <label class="check"><input type="checkbox" id="agree"><span>I’ve read and agree to the INKD Studio booking policies.</span></label>
+        <div id="review-error" class="alert hide"></div>
+        <button class="btn btn--block" id="hold-btn" disabled>Hold my session<span data-plural>s</span> <span class="arrow">→</span></button>
+        <p style="margin-top:14px"><button class="btn btn--ghost btn--block" id="back-dates">← Change dates</button></p>
+      </div>
+
+      <!-- Step 4: Deposit -->
+      <div class="view" id="view-deposit" hidden>
+        <span class="label">Secure your time</span>
+        <h1 class="display">Send your deposit</h1>
+        <p class="lead" id="deposit-lead"></p>
+        <div id="deposit-body"></div>
+      </div>
+
+      <!-- Returning client status -->
+      <div class="view" id="view-status" hidden>
+        <span class="label">Your bookings</span>
+        <h1 class="display" id="status-hello"></h1>
+        <div class="card"><ul class="tray-list" id="status-list" style="margin:0"></ul></div>
+        <div id="status-pay"></div>
+        <button class="btn btn--block hide" id="status-more">Choose remaining date(s) <span class="arrow">→</span></button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>INKD Studio · Tulsa, OK</span>
+      <a data-link="sms" href="#">Text 918-212-8144</a>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+  <script src="book.js"></script>
+</body>
+</html>
