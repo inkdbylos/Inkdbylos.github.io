@@ -1,5 +1,5 @@
 window.INKD_CONFIG = {
-  API_URL: 'https://script.google.com/macros/s/AKfycbwVM560oF-rQD1eLBoYnsQE7IFsTyeWArkIoF0eucfjoAqf-Wb04CZUbrcp-epKw8HF/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbzyhn31TlTmw5gdfX0qaGsF7J-KTjRfHliRVTPMy-ys9oFNd2iw8m2rg9sm2zkl8jI3/exec',
   INQUIRY_FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSc53OurN3050vla9Z_cscnfgwSDgxRNX9SVCh3S5F45wTaCdA/viewform',
   PHOTO_UPLOAD_URL: 'https://forms.gle/u5Rc6TcfPz3bErhn6',
 
