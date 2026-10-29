@@ -10,7 +10,7 @@ window.INKD_CONFIG = {
 
   GALLERY: [
     { src: 'photos/Back_Snake.jpeg', title: 'Snake & florals', detail: 'Black & grey · Spine', healed: false },
-    { src: 'photos/St.Judas_Forearm.jpeg', title: 'San Judas', detail: 'Black & grey · Forearm', healed: false },
+    { src: 'photos/St.Judas_Forearm.jpeg', title: 'San Judas', detail: 'Black & grey · Forearm', healed: true },
     { src: 'photos/Forearm1.jpeg', title: 'Laugh now, cry later', detail: 'Black & grey · Forearm', healed: true },
     { src: 'photos/Hand_aztec.jpeg', title: 'Aztec glyph', detail: 'Black & grey · Hand', healed: false },
     { src: 'photos/Lower_Wrist.jpeg', title: 'Creation & Calvary', detail: 'Black & grey · Wrist', healed: false },
