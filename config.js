@@ -4,8 +4,7 @@
 */
 window.INKD_CONFIG = {
   // Guide step 2.8 — the Web App URL from Apps Script (ends in /exec)
-  API_URL: 'https://script.google.com/macros/s/AKfycbwVM560oF-rQD1eLBoYnsQE7IFsTyeWArkIoF0eucfjoAqf-Wb04CZUbrcp-epKw8HF/exec',
-
+  API_URL: 'https://script.google.com/macros/s/AKfycbwVM560oF-rQD1eLBoYnsQE7IFsTyeWArkIoF0eucfjoAqf-Wb04CZUbrcp-epKw8HF/exec'
   // Guide step 2.5 — your Tattoo Request form link (from the "Links" tab of your Google Sheet)
   INQUIRY_FORM_URL: 'https://docs.google.com/forms/d/e/1FAIpQLSc53OurN3050vla9Z_cscnfgwSDgxRNX9SVCh3S5F45wTaCdA/viewform',
 
